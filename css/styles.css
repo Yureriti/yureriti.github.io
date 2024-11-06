@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth; 
+    user-select: none; 
+    padding-right: 12%;
+    padding-left: 10%;
+
+  }
+  
+  img {
+    -webkit-user-drag: none;
+  }
+  
+  /* Landing Page */
+  .landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+  }
+  
+  .content {
+    max-width: 750px;
+    margin-top: -120px;
+    width: 100%;
+    text-align: left;
+
+    min-height: 300px; /* set a minimum height to accommodate long text */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+        
+    opacity: 0;
+    animation: slideInRight 1.4s ease forwards 0.7s;
+    animation-delay: 2.1s;
+  }
+  
+  nav ul li {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer; 
+    transition: color 0.3s;
+  }
+  
+  nav ul li:hover {
+    color: #fff;
+  }
+
+  
+  nav ul li.active {
+    color: #fff;
+  }
+  
+  main h1 {
+    font-size: 40px;
+    font-weight: 550;
+    letter-spacing: -24%;
+    line-height: 48px;
+    pointer-events: none;
+    text-align: left;
+
+        
+    opacity: 0;
+    animation: slideInRight 1.4s ease forwards 0.7s; 
+    animation-delay: 2.4s;
+  }
+  
+  main h1 .highlight1, main h1 .highlight2 {
+    background: linear-gradient(to right, #f68c7f, #c08fff); /* Gradient from orange to purple */
+    -webkit-background-clip: text;
+    color: transparent; /* Use the gradient as the text color */
+  }
+
+  .highlight1 {
+    background: linear-gradient(to right, #f68c7f, #c08fff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+.highlight2 {
+    background: linear-gradient(to right, #7fc8f8, #f68c7f);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+.highlight3 {
+    background: linear-gradient(to right, #c08fff, #7fc8f8);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+
+  
+  /* Footer aligned across full width of the parent container */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    max-width: 100%;
+    position: absolute;
+    bottom: 80px;
+        
+    opacity: 0; 
+    animation: slideInRight 1.6s ease forwards 0.7s;
+    animation-delay: 2.6s;
+  }
+  
+  .location {
+    font-size: 16px;
+  }
+  
+  .location small {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Slideshow Section */
+  .slideshow-section {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+    min-height: 100vh;  
+    /* background-color: #111; */
+    text-align: center;
+    
+    
+  }
+
+  .slideshow-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+  
+  .caption {
+    color: #fff;
+    font-size: 32px;
+    margin-top: 20px;
+    text-align: left;
+    padding-top: 24px;
+    margin-right: 50px;
+    font-weight: 400;
+    
+
+    
+  }
+
+  .caption .subtext {
+    display: block;
+    /* font-size: 24px; */
+    font-weight: 400;
+    color: #595959;
+    margin-top: 5px;
+    margin-top: 10px;
+}
+
+  .slide {
+    display: none;
+    position: relative;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .slideshow-container {
+    position: relative;
+    cursor: pointer; 
+  }
+  
+  .slideshow-container:hover::before,
+  .slideshow-container:hover::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+  }
+  
+  .slideshow-container:hover::before {
+    left: 0;
+    cursor: url('left-arrow.png'), auto; /* Change cursor to left arrow */
+  }
+  
+  .slideshow-container:hover::after {
+    right: 0;
+    cursor: url('right-arrow.png'), auto; /* Change cursor to right arrow */
+  }
+
+  /* Footer Banner Styling */
+.footer-banner {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  text-align: left;
+  padding-top: 120px;
+  padding-bottom: 72px;
+  font-size: 32px;
+  font-weight: 600;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.footer-banner p {
+  margin: 0;
+}
+
+
+
+.footer-banner .sub {
+  display: block; /* Ensures it appears on a new line */
+  font-size: 24px; /* Smaller font size for subtext */
+  color: #595959; 
+  font-weight: 400;
+  margin-top: 24px;
+  
+  
+}
+
+.footer-banner .sub a {
+  color: #595959; 
+  text-decoration:none;
+  transition: color 0.3s ease;
+  
+  
+  
+}
+
+.footer-banner .sub a:hover {
+  color: transparent;  
+  background: linear-gradient(to right, #f68c7f, #c08fff);
+  -webkit-background-clip: text;
+}
+
+
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  align-items: center;
+  padding-left: 10%; /* Adds left padding */
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-text {
+  font-size: 96px; 
+  font-weight: 400;
+  /* background: linear-gradient(to right, #f68c7f, #c08fff); */
+  background-color: white;
+  -webkit-background-clip: text;
+  letter-spacing: -6px;
+  animation: slideout 1.2s ease forwards 0.9s; 
+}
+
+/* Keyframes for loading in and sliding out animation */
+@keyframes loadSlide {
+  0% {
+      opacity: 0;
+      transform: translateX(0); /* Initial position */
+  }
+  30% {
+      opacity: 1;
+      transform: translateX(0); /* Fade in and stay left-aligned */
+  }
+  70% {
+      opacity: 1;
+      transform: translateX(0); /* Pause briefly */
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(100%); /* Slide out to the right */
+  }
+}
+
+/* Hide the loading screen after animation */
+.hidden {
+  display: none;
+}
+
+@keyframes slideout {
+0% {
+    opacity: 1;
+    transform: translateY(0); /* Slight upward movement */
+}
+100% {
+    opacity: 0;
+    transform: translateY(-300px); /* Moves to its final position */
+}
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateY(150px); /* Slight upward movement */
+}
+100% {
+    opacity: 1;
+    transform: translateY(0); /* Moves to its final position */
+}
+}
+
+
+
+
+
+
+
+
+  @media screen and (min-width:1200px) {
+    footer {
+      justify-content: left;
+      gap: 140px;
+    }
+  }
+
+  @media screen and (max-width: 1180px) {
+
+
+    main h1 {
+        font-size: 40px;
+    }
+
+ 
+
+    .caption {
+        font-size: 24px;
+    }
+}
+  
+
+
+@media screen and (max-width: 768px) {
+
+    .caption {
+        font-size: 18px;
+    }
+
+
+    main h1 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .footer-banner {
+      font-size: 28px;
+    }
+    .footer-banner .sub {
+      font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+
+  .caption {
+      font-size: 16px;
+  }
+
+
+  main h1 {
+      font-size: 32px;
+      line-height: 36px;
+  }
+
+  .location {
+    font-size: 12px;
+  }
+  .location small {
+    font-size: 10px;  
+  }
+  nav ul li {
+    font-size: 14px;
+  }
+  .footer-banner {
+    font-size: 24px;
+  }
+  .footer-banner .sub {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  nav ul li {
+    font-size: 11px;
+  }
+  .location {
+    font-size: 11px;
+  }
+  .location small {
+    font-size: 10px;
+  }
+  .footer-banner {
+    font-size: 20px;
+  }
+  .footer-banner .sub {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .caption {
+        font-size: 12px;
+    }
+
+ 
+
+    main h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .footer-banner {
+      font-size: 16px;
+    }
+    .footer-banner .sub {
+      font-size: 12px;
+    }
+}
+
+
