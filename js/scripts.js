@@ -178,3 +178,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+// CUSTOM CURSORS
+document.getElementById('slideshow').addEventListener('mousemove', function (e) {
+  const slideshowWidth = this.offsetWidth;
+  const leftBoundary = slideshowWidth / 2;
+
+  if (e.offsetX < leftBoundary) {
+      this.classList.add('custom-cursor');
+  } else {
+      this.classList.remove('custom-cursor');
+  }
+});
