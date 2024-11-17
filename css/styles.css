@@ -217,6 +217,15 @@
     cursor: pointer; 
   }
 
+  .slide-counter {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #444444;
+  }
+   
+
   .slideshow-container::before {
     content: '';
     position: absolute;

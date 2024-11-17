@@ -65,18 +65,15 @@ function showSlides(index, slideshowId) {
   const slides = document.querySelectorAll(`#${slideshowId} .slide`);
   const totalSlides = slides.length;
 
-  // Wrap the index within bounds
   if (index >= totalSlides) {
     index = 0;
   } else if (index < 0) {
     index = totalSlides - 1;
   }
 
-  // Hide all slides in the specified slideshow, then show the active slide
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
 
-  // Update the specific slideshow's index
   if (slideshowId === 'slideshow') {
     slideIndexDoorstep = index;
   } else if (slideshowId === 'slideshow-another') {
@@ -86,7 +83,13 @@ function showSlides(index, slideshowId) {
   } else if (slideshowId === 'slideshow-portfolio') {
     slideIndexport = index;
   }
+
+  const slideCounter = document.querySelector(`#slide-counter-${slideshowId}`);
+  if (slideCounter) {
+    slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+  }
 }
+
 
 // Initialize both slideshows with the first slide
 showSlides(slideIndexDoorstep, 'slideshow');
@@ -145,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll("#nav-menu li");
   const dynamicText = document.getElementById("dynamic-text");
   const descriptions = {
-      "UI/UX Designer": 'I believe that <span class="highlight highlight2">form</span> and <span class="highlight highlight2">function</span> must work together, and I’m driven by the challenge of turning <span class="highlight highlight3">complex</span> needs into simple, beautiful solutions.',
+      "UI/UX Developer": 'I believe that <span class="highlight highlight2">form</span> and <span class="highlight highlight2">function</span> must work together, and I’m driven by the challenge of turning <span class="highlight highlight3">complex</span> needs into simple, beautiful solutions.',
       "Product Designer": `I believe the best products are those that solve <span class="highlight highlight3">real problems</span> while sparking a <span class="highlight highlight1">sense of joy</span>. I'll partner closely with you to generate the <span class="highlight highlight2">highest impact</span> possible.`,
       "Graphic Designer": 'Every pixel is a chance to tell a <span class="highlight highlight1">story</span>. I strive to create visuals that resonate on an <span class="highlight highlight3">emotional level</span> while communicating <span class="highlight highlight2">clearly and purposefully</span>.',
       "Fullstack": 'I craft <span class="highlight highlight3">seamless</span> digital experiences. I believe in the balance of <span class="highlight highlight1">elegance and efficiency</span>—writing code that is not just functional but <span class="highlight highlight3">beautiful</span>.',
@@ -180,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// CUSTOM CURSORS
 document.getElementById('slideshow').addEventListener('mousemove', function (e) {
   const slideshowWidth = this.offsetWidth;
   const leftBoundary = slideshowWidth / 2;
